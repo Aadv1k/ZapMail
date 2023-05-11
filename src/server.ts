@@ -4,8 +4,6 @@ import EmailCache from "./models/EmailCache";
 
 const app = express();
 
-
-
 (async () => {
     await EmailCache.init();
     app.get("/api/v1/email/validate", routeEmailValidate)
