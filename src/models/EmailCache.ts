@@ -8,7 +8,7 @@ class EmailCache {
 			socket: {
 				host: "localhost",
 				port: 6379,
-			}
+			},
 		});
 	}
 
