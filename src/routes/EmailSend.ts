@@ -12,7 +12,7 @@ import { Mail } from "../const/email";
 
 import RateLimiter from "../models/RateLimiter";
 
-const RATE_TIMEOUT = 3000;
+const RATE_TIMEOUT = 20_000;
 const RATE_LIMITER = new RateLimiter(1, RATE_TIMEOUT); // Throttle the requests to prevent overload 
 
 import Ajv from "ajv";
@@ -27,8 +27,6 @@ ajv.addFormat('email', {
 		},
 });
 
-const mailValidate = ajv.compile(mailSchema);
-
 const transporter = nodemailer.createTransport({
   maxConnections: 2,
   pool: true,
@@ -42,7 +40,7 @@ const transporter = nodemailer.createTransport({
 function sendMail(blob: Mail): Promise<string> {
 		const toEmails = blob.to.map(e => e.email);
 		const fromEmail = blob.from;
-		const body = `Forwarded via Daakia originally by ${fromEmail}\n` + blob.body.content;
+		const body = `Forwarded via Zap<https://github.com/aadv1k/zap> originally by ${fromEmail}\n` + blob.body.content;
 
 		return new Promise((resolve, reject) => {
 				transporter.sendMail({
@@ -79,8 +77,9 @@ export default async function (req: Express.Request, res: Express.Response) {
 		let body: Mail;
 
 		try {
-				body = JSON.parse(req.body);
-		} catch {
+				body = req.body;
+		} catch (err) {
+				console.log("DEBUG LOG >>>>> ", err)
 				sendErrorResponse(res, {
 						error: {
 								code: ErrorCodes.BAD_INPUT,
@@ -91,7 +90,8 @@ export default async function (req: Express.Request, res: Express.Response) {
 				return;
 		}
 
-		if (!mailValidate(body))  {
+		const isMailValid = ajv.validate(mailSchema, body);
+		if (!isMailValid)  {
 				sendErrorResponse(res, {
 						error: {
 								code: ErrorCodes.BAD_INPUT,
