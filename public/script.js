@@ -31,6 +31,5 @@ btnValidate.addEventListener("click", (elem) => {
 		    .then(data => {
 						validateOutput.innerText = JSON.stringify(data, null, 2);
 				})
-
-						hideLoader(elem.currentTarget);
+		hideLoader(elem.currentTarget);
 })

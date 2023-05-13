@@ -16,6 +16,7 @@
 
 html {
 		font-size: 16px;
+		box-sizing: border-box;
 }
 
 body {
@@ -78,6 +79,7 @@ h1,h2,h3 {
 .show__editable {
 		font-family: var(--font-mono);
 		flex: 30%;
+		min-width: 100%;
 		overflow-y: hidden;
 		word-wrap: nowrap;
 		color: var(--blue-1);
@@ -100,9 +102,8 @@ h1,h2,h3 {
 
 .show__output {
 		height: 12rem;
-		width: 100%;
-		padding-top: .2rem;
-		padding-left: .2rem;
+		max-width: 100%;
+		padding: .3rem;
 		overflow: scroll;
 		border-radius: 3px;
 		background-color: var(--gray-1);
@@ -115,6 +116,10 @@ h1,h2,h3 {
 		.show__bar {
 				flex-direction: row;
 				align-items: center;
+		}
+
+		.show__editable {
+				min-width: auto;
 		}
 
 		.show__fetch {
