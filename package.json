@@ -4,7 +4,8 @@
   "description": "The email solution for developers",
   "main": "./dist/index.js",
   "scripts": {
-			"build": "tsc"
+			"build": "tsc",
+      "start": "node ./dist/index.js"
   },
   "keywords": [
     "email",
