@@ -6,9 +6,6 @@ export enum ErrorCodes {
   BAD_INPUT = "bad_input",
   TOO_MANY_REQUESTS = "too_many_requests",
   INTERNAL_ERROR = "internal_error",
-
-
-		
 }
 
 export interface ApiError {
