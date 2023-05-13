@@ -1,5 +1,5 @@
 {
-  "name": "zap",
+  "name": "ZapMail",
   "version": "1.0.0",
   "description": "The email solution for developers",
   "main": "./dist/index.js",

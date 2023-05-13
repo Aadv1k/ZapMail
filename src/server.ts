@@ -14,7 +14,7 @@ const app = express();
 app.use(express.static('./public'))
 
 app.use(express.json());
-app.use((err: any, req: any, res: any, next) => {
+app.use((err: any, req: any, res: any, next: any) => {
     if (err instanceof SyntaxError) 
 				sendErrorResponse(res as express.Response, {
 						error: {
@@ -30,8 +30,7 @@ app.use((err: any, req: any, res: any, next) => {
     await EmailCache.init();
 		app.get("/", (req, res) => {
 				console.log(path.join(__dirname, "./public/index.html"))
-				res.sendFile(path.join(__dirname, "../
-public/index.html"))
+				res.sendFile(path.join(__dirname, "../public/index.html"))
 		})
     app.get("/api/v1/email/validate", routeEmailValidate)
 		app.post("/api/v1/email/send", routeEmailSend)
