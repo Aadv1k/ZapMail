@@ -1,4 +1,5 @@
 import { createClient } from "redis";
+import { REDIS_CONFIG } from "../const/vars";
 
 class EmailCache {
 	client: any;
@@ -6,9 +7,12 @@ class EmailCache {
 	constructor() {
 		this.client = createClient({
 			socket: {
-				host: "localhost",
-				port: 6379,
+				host: REDIS_CONFIG.host,
+				port: REDIS_CONFIG.port,
 			},
+			username: REDIS_CONFIG.username,
+			password: REDIS_CONFIG.password
+			
 		});
 	}
 
