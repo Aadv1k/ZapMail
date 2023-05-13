@@ -20,9 +20,13 @@
 		</div>
 
 		<section class="in-action">
-				<h2>See it in action</h2>
-
 				<div class="show">
+					<article class="show__info">
+						<h3>Validation</h3>
+						<p>Good for a DNS + Syntax check for the email, ideal for Sign-Up pages and newsletters</p>
+					</article>
+
+
 					<div class="show__bar">
 						<span>
 							/api/v1/email/validate?email=
@@ -35,12 +39,53 @@
 					</div>
 
 						<div class="show__output" id="validateOutput">Nothing to see here yet</div>
+
+				<div class="show">
+					<article class="show__info">
+						<h3>Delivery</h3>
+						<p>Ideal for sending simple welcome emails or automations, it is not recommended for sending bulk emails since there is a request timeout </p>
+					</article>
+
+
+					<div class="show__bar">
+						<span>
+							/api/v1/email/send
+							</span>
+						<button class="show__fetch" id="btnSend" form="sendForm">
+								Fetch
+						</button>
+					</div>
+
+					<form class="show__form" action="" id="sendForm">
+						<div>
+<label for="subject">Subject:</label>
+<input type="text" name="subject" required>
+						</div>
+					
+						<div>
+<label for="toEmail">To:</label>
+<input type="email" name="toEmail" required>
+						</div>
+
+						<div>
+<label for="fromEmail">From:</label>
+<input type="email" name="fromEmail" required>
+						</div>
+					
+						<textarea required name="emailBody" placeholder="HTML is also supported"></textarea>
+					</form>
+
+
+					<div class="split-view">
+
+						<div class="show__output" id="sendPostOutput">Post data</div>
+						
+						<div class="show__output" id="sendOutput">Nothing to see here yet</div>
+					</div>
+
+
 				</div>
 
 		</section>
-		
-
-
-
   </body>
 </html>

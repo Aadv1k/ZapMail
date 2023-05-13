@@ -10,3 +10,12 @@ export function sendJSONResponse(res: Express.Response, obj: any, status?: numbe
     res.status(obj.status ?? status ?? 200);
     res.json(obj)
 }
+
+
+export function isURL(u: string): boolean {
+		try {
+				new URL(u)
+				return true;
+		} catch { return false }
+
+}
