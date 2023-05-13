@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>ZapMail</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+		<link href="style.css" rel="stylesheet"/>
+		<script src="script.js" defer></script>
+  </head>
+  <body>
+		<div class="hero">
+			<h1>ZapMail
+				<svg xmlns="http://www.w3.org/2000/svg"  class="hero--logo bi bi-lightning-fill" viewBox="0 0 16 16">
+					<path d="M5.52.359A.5.5 0 0 1 6 0h4a.5.5 0 0 1 .474.658L8.694 6H12.5a.5.5 0 0 1 .395.807l-7 9a.5.5 0 0 1-.873-.454L6.823 9.5H3.5a.5.5 0 0 1-.48-.641l2.5-8.5z"/>
+				</svg>
+			</h1>
+				<p>The simplest email delivery and validation solution on the entire web</p>
+		</div>
+
+		<section class="in-action">
+				<h2>See it in action</h2>
+
+				<div class="show">
+					<div class="show__bar">
+						<span>
+							/api/validate/email?=
+							</span>
+						<div class="show__editable" id="validateEmail" contenteditable>foo@bar.com</div>
+
+						<button class="show__fetch" id="btnValidate">
+								Fetch
+						</button>
+					</div>
+
+						<div class="show__output" id="validateOutput">Nothing to see here yet</div>
+				</div>
+
+		</section>
+		
+
+
+
+  </body>
+</html>
